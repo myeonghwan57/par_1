@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h2>제목 : {{review.title}}</h2>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10">{{review.content}}</textarea>
+  <button class="form-control btn btn-dark my-3">
+    <a class="text-decoration-none text-white" href="{% url 'reviews:edit' review.pk %}">리뷰 수정</a>
+  </button>
+  <button class="form-control btn btn-dark my-3">
+    <a class="text-decoration-none text-white" href="{% url 'reviews:delete' review.pk %}">리뷰 삭제</a>
+  </button>
+  <button class="form-control btn btn-dark my-3">
+    <a class="text-decoration-none text-white" href="{% url 'reviews:index' %}">목록</a>
+  </button>
+</div>
+{% endblock %}

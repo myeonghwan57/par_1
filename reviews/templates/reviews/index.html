@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <a href="{%url 'reviews:new' %}">리뷰 작성</a>
+  <form action=>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th class="col-2">리뷰 번호</th>
+          <th class="col-5">리뷰 제목</th>
+          <th class="col-5">작성 시간</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in reviews %}
+        <tr>
+          <th scope="row">{{review.id}}</th>
+          <td><a href="{%url 'reviews:detail' review.pk %}">{{review.title}}</a></td>
+          <td>{{review.created_at}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</div>
+{% endblock %}

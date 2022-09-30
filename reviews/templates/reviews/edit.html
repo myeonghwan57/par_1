@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <form action="{% url 'reviews:create' %}">
+    제목 <input class="form-control" type='text' name="title" value="{{review.title}}"><br>
+    내용
+    <textarea class="form-control" name="content" rows="3">{{review.content}}</textarea>
+    <input class="form-control btn btn-secondary mt-5" type="submit" value="리뷰 수정">
+  </form>
+</div>
+{% endblock %}
